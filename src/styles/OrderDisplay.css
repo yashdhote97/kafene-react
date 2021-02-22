@@ -1,0 +1,13 @@
+#orderDetails{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 170px;
+    width: 500px;
+    text-align: center;
+}
+#ordersBody td,th{
+    padding:10px;
+}
+#ordersBody td{
+    background-color: #F6F7FB;
+}

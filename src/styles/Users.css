@@ -1,0 +1,69 @@
+
+.mainWrap{
+    margin-top: 100px;
+    padding:0;
+}
+.main{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+.main h1{
+    padding-right: 20px;
+}
+.userList{
+    width: 100%;
+    margin-top:20px;
+    padding: 32px 0;
+}
+.searchWrap{
+    width: 800px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+}
+#search{
+    width: calc(100% - 100px);
+    padding: 12px 24px;
+    font-size: 15px;
+    border: 0;
+    border-bottom: 2px solid #8c8c8c;
+    margin: 0 36px 0 0;
+    outline: none;
+}
+.resetButton{
+    display: inline-block;
+    border-radius: 30px;
+    padding: 14px 36px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color: #20b883;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.userTableWrap{
+    width:100%;
+}
+.userTable{
+    width: 100%;
+    border-collapse: collapse;
+}
+.userTable th,.userTable td{
+    text-align: left;
+    padding: 12px 24px;
+    font-size: 14px;
+}
+tbody td{
+    background-color: #fff;
+    border-bottom: 4px solid #f6f7fb;
+}
+.tdSecondry{
+    color: #8c8c8c;
+}
+.tdPrimary{
+    color: rgba(0,0,0,.8);
+    font-weight: 500;
+}
