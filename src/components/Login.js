@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Orders from './Orders';
 import axios from'axios';
 import { Redirect } from "react-router-dom";
+import {setLogin} from "../reducers"
+import { connect } from "react-redux";
 import "../styles/Login.css";
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { username:'',password:'',login:false}
+        this.state = { username:'',password:'',login:JSON.parse(localStorage.getItem("loginStatus"))||false}
     }
     handleChange=(event)=>{
         if(event.target.id=='username'){
@@ -33,10 +34,14 @@ class Login extends Component {
             })
             .then((response)=>{
               this.setState({login:true});
+              localStorage.setItem("loginStatus", JSON.stringify(true));
+              this.props.setLogin(true);
+
             }).catch((err)=>{
               alert("Api call failed...still redirecting")
               this.setState({login:true});
-              this.forceUpdate();
+              localStorage.setItem("loginStatus", JSON.stringify(true));
+              this.props.setLogin(true);
             })
         }
         e.preventDefault();
@@ -75,11 +80,13 @@ class Login extends Component {
          );
     }
 }
-// const mapDispatchToProps = (dispatch) => ({
-//     dispatchProducts: (data) => dispatch(getProduct(data))
-// })
-  
+const mapDispatchToProps = (dispatch) => ({
+  setLogin: (data) => dispatch(setLogin(data))
+})
 
+const mapStateToProps = (store) => ({
+  loginStatus: store?.loginStatus,
+});
   
  
-export default Login;
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
