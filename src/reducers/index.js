@@ -1,20 +1,21 @@
 import {createStore} from "redux";
 
-export function loginStatus(payload) {
+export function setLogin(payload) {
+    localStorage.setItem("loginStatus", JSON.stringify(payload));
     return {
-        type: "LOGIN_STATUS",
+        type: "SET_LOGIN",
         payload
     }
 }
 
 
 const initialState = {
-    loginStatus:false,
+    loginStatus:JSON.parse(localStorage.getItem("loginStatus"))||false,
 }
 
 function reducer(state=initialState, action) {
     switch(action.type) {
-        case "LOGIN_STATUS":
+        case "SET_LOGIN":
                 return { ...state, loginStatus:action.payload};             
         default:
             return state;
